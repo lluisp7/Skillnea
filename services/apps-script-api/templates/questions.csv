@@ -1,0 +1,33 @@
+id,testId,order,prompt,helper,dimension,optionId,optionLabel,optionValue
+q-001,rrhh-001,1,Prefiero comenzar mi jornada con una lista de prioridades clara.,Selecciona la opción que mejor te represente.,Organization,opt-1,Nunca,1
+q-001,rrhh-001,1,Prefiero comenzar mi jornada con una lista de prioridades clara.,Selecciona la opción que mejor te represente.,Organization,opt-2,A veces,2
+q-001,rrhh-001,1,Prefiero comenzar mi jornada con una lista de prioridades clara.,Selecciona la opción que mejor te represente.,Organization,opt-3,A menudo,3
+q-001,rrhh-001,1,Prefiero comenzar mi jornada con una lista de prioridades clara.,Selecciona la opción que mejor te represente.,Organization,opt-4,Siempre,4
+q-002,rrhh-001,2,Me siento cómodo ajustando decisiones cuando cambia el contexto.,Selecciona la opción que mejor te represente.,Adaptability,opt-1,Nunca,1
+q-002,rrhh-001,2,Me siento cómodo ajustando decisiones cuando cambia el contexto.,Selecciona la opción que mejor te represente.,Adaptability,opt-2,A veces,2
+q-002,rrhh-001,2,Me siento cómodo ajustando decisiones cuando cambia el contexto.,Selecciona la opción que mejor te represente.,Adaptability,opt-3,A menudo,3
+q-002,rrhh-001,2,Me siento cómodo ajustando decisiones cuando cambia el contexto.,Selecciona la opción que mejor te represente.,Adaptability,opt-4,Siempre,4
+q-003,rrhh-001,3,Busco retroalimentación antes de cerrar un entregable importante.,Selecciona la opción que mejor te represente.,Feedback,opt-1,Nunca,1
+q-003,rrhh-001,3,Busco retroalimentación antes de cerrar un entregable importante.,Selecciona la opción que mejor te represente.,Feedback,opt-2,A veces,2
+q-003,rrhh-001,3,Busco retroalimentación antes de cerrar un entregable importante.,Selecciona la opción que mejor te represente.,Feedback,opt-3,A menudo,3
+q-003,rrhh-001,3,Busco retroalimentación antes de cerrar un entregable importante.,Selecciona la opción que mejor te represente.,Feedback,opt-4,Siempre,4
+q-004,rrhh-001,4,Me resulta natural mantener la calma en situaciones ambiguas.,Selecciona la opción que mejor te represente.,Resilience,opt-1,Nunca,1
+q-004,rrhh-001,4,Me resulta natural mantener la calma en situaciones ambiguas.,Selecciona la opción que mejor te represente.,Resilience,opt-2,A veces,2
+q-004,rrhh-001,4,Me resulta natural mantener la calma en situaciones ambiguas.,Selecciona la opción que mejor te represente.,Resilience,opt-3,A menudo,3
+q-004,rrhh-001,4,Me resulta natural mantener la calma en situaciones ambiguas.,Selecciona la opción que mejor te represente.,Resilience,opt-4,Siempre,4
+q-101,rrhh-002,1,Comparto contexto suficiente cuando delego una tarea.,Selecciona la opción que mejor te represente.,Communication,opt-1,Nunca,1
+q-101,rrhh-002,1,Comparto contexto suficiente cuando delego una tarea.,Selecciona la opción que mejor te represente.,Communication,opt-2,A veces,2
+q-101,rrhh-002,1,Comparto contexto suficiente cuando delego una tarea.,Selecciona la opción que mejor te represente.,Communication,opt-3,A menudo,3
+q-101,rrhh-002,1,Comparto contexto suficiente cuando delego una tarea.,Selecciona la opción que mejor te represente.,Communication,opt-4,Siempre,4
+q-102,rrhh-002,2,Identifico rápido cuándo un compañero necesita apoyo.,Selecciona la opción que mejor te represente.,Empathy,opt-1,Nunca,1
+q-102,rrhh-002,2,Identifico rápido cuándo un compañero necesita apoyo.,Selecciona la opción que mejor te represente.,Empathy,opt-2,A veces,2
+q-102,rrhh-002,2,Identifico rápido cuándo un compañero necesita apoyo.,Selecciona la opción que mejor te represente.,Empathy,opt-3,A menudo,3
+q-102,rrhh-002,2,Identifico rápido cuándo un compañero necesita apoyo.,Selecciona la opción que mejor te represente.,Empathy,opt-4,Siempre,4
+q-103,rrhh-002,3,Prefiero resolver tensiones antes de que crezcan.,Selecciona la opción que mejor te represente.,Conflict Management,opt-1,Nunca,1
+q-103,rrhh-002,3,Prefiero resolver tensiones antes de que crezcan.,Selecciona la opción que mejor te represente.,Conflict Management,opt-2,A veces,2
+q-103,rrhh-002,3,Prefiero resolver tensiones antes de que crezcan.,Selecciona la opción que mejor te represente.,Conflict Management,opt-3,A menudo,3
+q-103,rrhh-002,3,Prefiero resolver tensiones antes de que crezcan.,Selecciona la opción que mejor te represente.,Conflict Management,opt-4,Siempre,4
+q-104,rrhh-002,4,Adapto mi forma de colaborar según el ritmo del equipo.,Selecciona la opción que mejor te represente.,Teamwork,opt-1,Nunca,1
+q-104,rrhh-002,4,Adapto mi forma de colaborar según el ritmo del equipo.,Selecciona la opción que mejor te represente.,Teamwork,opt-2,A veces,2
+q-104,rrhh-002,4,Adapto mi forma de colaborar según el ritmo del equipo.,Selecciona la opción que mejor te represente.,Teamwork,opt-3,A menudo,3
+q-104,rrhh-002,4,Adapto mi forma de colaborar según el ritmo del equipo.,Selecciona la opción que mejor te represente.,Teamwork,opt-4,Siempre,4

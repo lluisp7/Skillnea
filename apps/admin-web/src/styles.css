@@ -1,0 +1,123 @@
+:root {
+  color-scheme: light;
+  font-family: Inter, "Segoe UI", sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(70, 111, 165, 0.16), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(114, 137, 161, 0.12), transparent 24%),
+    #f5f7fb;
+  color: #22303a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+.shell {
+  margin: 0 auto;
+  max-width: 1120px;
+  padding: 40px 20px 64px;
+}
+
+.hero {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(150, 170, 190, 0.16);
+  border-radius: 32px;
+  box-shadow: 0 24px 50px rgba(41, 58, 72, 0.08);
+  padding: 32px;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 3.6rem);
+  line-height: 1.02;
+  margin: 12px 0 16px;
+  max-width: 760px;
+}
+
+.hero p,
+.panel-card p,
+.panel-card li {
+  color: #5d6871;
+  line-height: 1.65;
+}
+
+.eyebrow {
+  color: #466fa5;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.22rem;
+}
+
+.hero-metrics {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  margin-top: 28px;
+}
+
+.stat-card,
+.panel-card {
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(150, 170, 190, 0.16);
+  border-radius: 24px;
+  padding: 20px;
+}
+
+.stat-card span {
+  color: #5d6871;
+  display: block;
+  font-size: 0.82rem;
+  margin-bottom: 8px;
+}
+
+.stat-card strong {
+  color: #22303a;
+  font-size: 1.35rem;
+}
+
+.panel-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  margin-top: 24px;
+}
+
+.panel-card h2 {
+  font-size: 1.15rem;
+  margin-top: 0;
+}
+
+.panel-card ul,
+.panel-card ol {
+  margin: 16px 0 0;
+  padding-left: 20px;
+}
+
+.panel-card.accent {
+  background: linear-gradient(160deg, #466fa5, #5d80ab);
+}
+
+.panel-card.accent h2,
+.panel-card.accent p,
+.panel-card.accent li {
+  color: #f7fbff;
+}
+
+.error {
+  color: #a43838;
+  font-weight: 600;
+}
+
+@media (max-width: 640px) {
+  .shell {
+    padding: 20px 16px 40px;
+  }
+
+  .hero {
+    padding: 24px;
+  }
+}

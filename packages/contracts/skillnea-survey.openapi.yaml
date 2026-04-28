@@ -1,0 +1,187 @@
+openapi: 3.1.0
+info:
+  title: Skillnea Survey Contract
+  version: 0.1.0
+  description: Contrato inicial compartido entre la app Android, el panel admin y la API temporal.
+servers:
+  - url: https://script.google.com
+    description: Apps Script temporal
+  - url: http://localhost:8080
+    description: Admin API local
+paths:
+  /macros/s/{deploymentId}/exec:
+    get:
+      summary: Obtener catálogo de tests o preguntas de un test
+      parameters:
+        - in: path
+          name: deploymentId
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: action
+          required: true
+          schema:
+            type: string
+            enum: [tests, questions]
+        - in: query
+          name: testId
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Respuesta satisfactoria
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: '#/components/schemas/TestsResponse'
+                  - $ref: '#/components/schemas/QuestionsResponse'
+    post:
+      summary: Enviar respuestas de un participante
+      parameters:
+        - in: path
+          name: deploymentId
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: action
+          required: true
+          schema:
+            type: string
+            enum: [submit]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SurveySubmission'
+      responses:
+        '200':
+          description: Resultado del guardado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubmissionResponse'
+  /health:
+    get:
+      summary: Salud del gateway local
+      responses:
+        '200':
+          description: OK
+  /config:
+    get:
+      summary: Estado y configuración básica del gateway local
+      responses:
+        '200':
+          description: Configuración
+components:
+  schemas:
+    TestSummary:
+      type: object
+      required: [id, title, description, estimatedMinutes, category, questionCount, active]
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        estimatedMinutes:
+          type: integer
+        category:
+          type: string
+        questionCount:
+          type: integer
+        active:
+          type: boolean
+    SurveyOption:
+      type: object
+      required: [id, label, value]
+      properties:
+        id:
+          type: string
+        label:
+          type: string
+        value:
+          type: integer
+    SurveyQuestion:
+      type: object
+      required: [id, testId, order, prompt, helper, dimension, options]
+      properties:
+        id:
+          type: string
+        testId:
+          type: string
+        order:
+          type: integer
+        prompt:
+          type: string
+        helper:
+          type: string
+        dimension:
+          type: string
+        options:
+          type: array
+          items:
+            $ref: '#/components/schemas/SurveyOption'
+    SurveyAnswer:
+      type: object
+      required: [questionId, optionId, score]
+      properties:
+        questionId:
+          type: string
+        optionId:
+          type: string
+        score:
+          type: integer
+    SurveySubmission:
+      type: object
+      required: [participantEmail, testId, submittedAt, answers]
+      properties:
+        participantEmail:
+          type: string
+          format: email
+        testId:
+          type: string
+        submittedAt:
+          type: string
+        answers:
+          type: array
+          items:
+            $ref: '#/components/schemas/SurveyAnswer'
+    TestsResponse:
+      type: object
+      required: [status, data]
+      properties:
+        status:
+          type: string
+          enum: [ok]
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/TestSummary'
+    QuestionsResponse:
+      type: object
+      required: [status, data]
+      properties:
+        status:
+          type: string
+          enum: [ok]
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/SurveyQuestion'
+    SubmissionResponse:
+      type: object
+      required: [status, message, submissionId]
+      properties:
+        status:
+          type: string
+          enum: [ok, demo]
+        message:
+          type: string
+        submissionId:
+          type: string
