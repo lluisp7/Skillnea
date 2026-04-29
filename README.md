@@ -281,12 +281,7 @@ Se ignoran por Git:
 4. La web Dockerizada no necesita exponer claves en cliente; consume `/api`.
 5. `Apps Script` con acceso publico debe considerarse temporal, no un modelo de seguridad final.
 
-### Riesgos conocidos
 
-- `admin-api` aun no tiene autenticacion.
-- `Apps Script` publico no es suficiente para produccion.
-- la separacion entre hoja de preguntas y hoja de respuestas sigue siendo recomendable si el volumen crece.
-- el panel admin todavia no gestiona permisos ni trazabilidad de usuario.
 
 ## Limpieza y criterios del repo
 
@@ -334,10 +329,3 @@ docker compose -f infra/docker/compose.local.yml -p skillnea_local down
 - [services/admin-api/README.md](./services/admin-api/README.md)
 - [services/apps-script-api/README.md](./services/apps-script-api/README.md)
 
-## Roadmap recomendado
-
-1. Separar definitivamente preguntas y respuestas en fuentes distintas.
-2. Crear modulo `responses` en panel web.
-3. Añadir autenticacion y permisos en `admin-api`.
-4. Migrar desde Apps Script a backend real cuando el flujo este estable.
-5. Integrar `evaluator-agent` contra el contrato compartido.
