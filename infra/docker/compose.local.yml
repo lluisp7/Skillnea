@@ -4,8 +4,9 @@ services:
       context: ../../services/admin-api
       dockerfile: Dockerfile
     container_name: skillnea-admin-api
+    env_file:
+      - ../../services/admin-api/.env
     environment:
-      APPS_SCRIPT_BASE_URL: ${APPS_SCRIPT_BASE_URL:-}
       SERVICE_VERSION: 0.1.0
     ports:
       - "8080:8080"
@@ -14,11 +15,10 @@ services:
     build:
       context: ../../apps/admin-web
       dockerfile: Dockerfile
+      args:
+        VITE_ADMIN_API_BASE_URL: /api
     container_name: skillnea-admin-web
-    environment:
-      VITE_ADMIN_API_BASE_URL: http://localhost:8080
-      VITE_APP_VERSION: 0.1.0
     depends_on:
       - admin-api
     ports:
-      - "5173:5173"
+      - "5173:80"

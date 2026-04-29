@@ -1,21 +1,39 @@
 # Skillnea Android
 
-Base Android Studio con:
+Aplicacion Android de `Skillnea` en Kotlin + Jetpack Compose con estructura MVVM.
 
-- Kotlin
-- Jetpack Compose
-- arquitectura MVVM
-- repositorio preparado para Apps Script
-- modo demo local si la API temporal no está configurada
+## Estructura actual
 
-## Configuración rápida
+```text
+app/src/main/java/com/skillnea/mobile
+├── config
+├── data
+│   ├── remote
+│   └── repository
+├── model
+├── view
+│   ├── access
+│   ├── result
+│   ├── survey
+│   └── theme
+└── viewmodel
+```
+
+## Configuracion rapida
 
 1. Abre esta carpeta en Android Studio.
-2. Revisa [gradle.properties](C:/Users/lui8p/Desktop/SKILLNEA/apps/mobile-android/gradle.properties).
-3. Si ya tienes desplegado el Apps Script, define:
+2. Copia [secret.properties.example](./secret.properties.example) a `secret.properties`.
+3. Define la URL del Apps Script:
 
 ```properties
 APPS_SCRIPT_BASE_URL=https://script.google.com/macros/s/TU_DEPLOYMENT/exec
+APPS_SCRIPT_DEPLOYMENT_ID=TU_DEPLOYMENT
 ```
 
-4. Si no, la app arrancará con datos locales de muestra.
+4. `secret.properties` esta ignorado por Git.
+
+## Build
+
+```bash
+./gradlew :app:assembleDebug
+```

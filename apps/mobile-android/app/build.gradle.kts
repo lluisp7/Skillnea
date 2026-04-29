@@ -1,8 +1,22 @@
+import java.util.Properties
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("org.jetbrains.kotlin.plugin.compose")
 }
+
+val secretProperties = Properties().apply {
+    val secretFile = rootProject.file("secret.properties")
+    if (secretFile.exists()) {
+        secretFile.inputStream().use { load(it) }
+    }
+}
+
+fun secretValue(name: String): String =
+    secretProperties.getProperty(name)
+        ?.takeIf { it.isNotBlank() }
+        ?: providers.gradleProperty(name).orElse("").get()
 
 android {
     namespace = "com.skillnea.mobile"
@@ -18,12 +32,12 @@ android {
         buildConfigField(
             "String",
             "APPS_SCRIPT_BASE_URL",
-            "\"${providers.gradleProperty("APPS_SCRIPT_BASE_URL").orElse("").get()}\"",
+            "\"${secretValue("APPS_SCRIPT_BASE_URL")}\"",
         )
         buildConfigField(
             "String",
             "APPS_SCRIPT_DEPLOYMENT_ID",
-            "\"${providers.gradleProperty("APPS_SCRIPT_DEPLOYMENT_ID").orElse("").get()}\"",
+            "\"${secretValue("APPS_SCRIPT_DEPLOYMENT_ID")}\"",
         )
     }
 
@@ -72,6 +86,10 @@ dependencies {
     implementation("androidx.compose.material3:material3:1.3.1")
     implementation("androidx.compose.material:material-icons-extended:1.7.5")
     implementation("androidx.compose.ui:ui-tooling-preview:1.7.5")
+    implementation("com.squareup.retrofit2:retrofit:2.11.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.11.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
+    implementation("com.google.code.gson:gson:2.11.0")
 
     debugImplementation("androidx.compose.ui:ui-tooling:1.7.5")
 }

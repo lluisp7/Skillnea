@@ -2,20 +2,24 @@
 
 Esta carpeta contiene una implementación temporal para usar Google Sheets como fuente de preguntas y como registro de respuestas.
 
-## Hojas necesarias
+## Estructura actual esperada
 
-Crea una hoja de cálculo con estas pestañas:
+El script ya está adaptado a tu Google Sheet actual, con una hoja que contiene estas columnas:
 
-- `tests`
-- `questions`
-- `responses`
+- `id`
+- `disposition`
+- `level`
+- `rubric`
+- `question`
 
-Puedes partir de las plantillas CSV en [templates](C:/Users/lui8p/Desktop/SKILLNEA/services/apps-script-api/templates).
+No hace falta una pestaña `tests` ni una pestaña `questions` separadas.
+
+La pestaña `responses` se crea sola cuando llegue la primera entrega de respuestas.
 
 ## Despliegue
 
-1. Abre [SkillneaSurveyApi.gs](C:/Users/lui8p/Desktop/SKILLNEA/services/apps-script-api/SkillneaSurveyApi.gs) en un proyecto de Apps Script.
-2. Vincula el script a tu Google Sheet.
+1. Abre [SkillneaSurveyApi.gs](./SkillneaSurveyApi.gs) en un proyecto de Apps Script.
+2. Pega el contenido de [SkillneaSurveyApi.gs](./SkillneaSurveyApi.gs).
 3. Despliega como `Web app`.
 4. Permisos recomendados:
    - ejecutar como: tú
@@ -24,8 +28,26 @@ Puedes partir de las plantillas CSV en [templates](C:/Users/lui8p/Desktop/SKILLN
 ## Endpoints soportados
 
 - `GET ?action=tests`
-- `GET ?action=questions&testId=...`
+- `GET ?action=dispositions`
+- `GET ?action=questions&testId=critical-thinking-rubric`
+- `GET ?action=questions&disposition=Truth-Seeking`
+- `GET ?action=schema`
 - `POST ?action=submit`
+
+## Modelo de respuesta
+
+Esta versión del Apps Script ya no está pensada para preguntas cerradas con opciones, sino para preguntas abiertas con rúbrica.
+
+Cada pregunta se expone con:
+
+- `prompt`
+- `dimension`
+- `disposition`
+- `rubricLevel`
+- `rubric`
+- `responseType: "text"`
+
+Si la app móvil va a consumir esta hoja tal cual, habrá que adaptar también la UI móvil para respuestas abiertas y evaluación posterior por rúbrica.
 
 ## Nota importante para el panel admin
 
